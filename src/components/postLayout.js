@@ -18,7 +18,6 @@ export const query = graphql`
 
 export default class postLayout extends Component {
   render() {
-    console.log(this.props.data)
     const { markdownRemark } = this.props.data
 
     return (
