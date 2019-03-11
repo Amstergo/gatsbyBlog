@@ -26,6 +26,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     createPage({
       path: `/posts${node.frontmatter.slug}`,
       component: path.resolve("./src/components/postLayout.js"),
+      context: {
+        slug: node.frontmatter.slug,
+      },
     })
   })
 
