@@ -20,7 +20,7 @@ const Header = ({ siteTitle, children }) => (
   />
 )
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   background: rebeccapurple;
   margin-bottom: 1.45rem;
 `
