@@ -32,8 +32,8 @@ const Layout = ({ children }) => (
         <Header siteTitle={data.site.siteMetadata.title} />
         <Wrapper>
           <main>{children}</main>
-          <Footer />
         </Wrapper>
+        <Footer />
         {/* <Archive /> */}
       </>
     )}
