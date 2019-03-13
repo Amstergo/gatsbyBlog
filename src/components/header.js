@@ -53,6 +53,7 @@ const HeaderWrapper = styled.header`
 const HeaderContainer = styled.div`
   margin: 0 auto;
   max-width: 1200px;
+  padding: 0px 1.0875rem;
   display: grid;
   grid-template-columns: 0.4fr 1fr 0.4fr;
   grid-template-rows: 80px;
