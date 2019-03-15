@@ -4,27 +4,27 @@ import Img from "gatsby-image"
 import { Spring } from "react-spring/renderprops"
 import styled from "styled-components"
 
-const PhotoList = () => (
+const Banner = () => (
   <StaticQuery
     query={ImageQuery}
     render={data => (
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {styles => (
-          <Banner style={{ ...styles }}>
+          <BannerWrapper style={{ ...styles }}>
             <Img fluid={data.heroImage.childImageSharp.fluid} />
             <BannerText>
               <h3>Tours & Travels</h3>
               <h1>Amazing Places on earth</h1>
               <h4>March 13, 2019</h4>
             </BannerText>
-          </Banner>
+          </BannerWrapper>
         )}
       </Spring>
     )}
   />
 )
 
-const Banner = styled.div`
+const BannerWrapper = styled.div`
   position: relative;
 
   &:after {
@@ -72,4 +72,4 @@ export const ImageQuery = graphql`
   }
 `
 
-export default PhotoList
+export default Banner

@@ -11,7 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Header from "./header/index"
-import Footer from "./footer"
+import Footer from "./footer/index"
 // import Archive from "./archive"
 
 import "./layout.css"
