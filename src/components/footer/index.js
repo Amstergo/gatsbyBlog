@@ -94,6 +94,10 @@ const FooterWrapper = styled.footer`
     text-align: center;
     font-size: 80%;
   }
+
+  @media (max-width: 610px) {
+    padding: 70px 20px;
+  }
 `
 
 const FooterContainer = styled.div`
@@ -197,7 +201,7 @@ const FollowIcons = styled.div`
   }
 
   @media (max-width: 610px) {
-    margin-bottom: 1em;
+    margin-bottom: 3em;
   }
 `
 
