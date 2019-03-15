@@ -4,10 +4,8 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { graphql, StaticQuery, Link } from "gatsby"
 
-import Facebook from "../images/facebook-logo.svg"
-import Twitter from "../images/twitter.svg"
-import Telegram from "../images/telegram.svg"
-import Istagram from "../images/instagram.svg"
+import Social from "./social"
+import Menu from "./menu"
 
 const Header = ({ siteTitle, children }) => (
   <StaticQuery
@@ -19,27 +17,8 @@ const Header = ({ siteTitle, children }) => (
             <ImageContainer fluid={data.imageOne.childImageSharp.fluid} />
             <TitleLink to="/">{siteTitle}</TitleLink>
           </Title>
-          <Menu>
-            {menu.map(i => (
-              <li key={i.name}>
-                <Link to={i.path}>{i.name}</Link>
-              </li>
-            ))}
-          </Menu>
-          <Social>
-            <Link to="/">
-              <img src={Facebook} alt="twitter" />
-            </Link>
-            <Link to="/">
-              <img src={Twitter} alt="twitter" />
-            </Link>
-            <Link to="/">
-              <img src={Istagram} alt="instagram" />
-            </Link>
-            <Link to="/">
-              <img src={Telegram} alt="telegram" />
-            </Link>
-          </Social>
+          <Menu />
+          <Social />
         </HeaderContainer>
       </HeaderWrapper>
     )}
@@ -82,57 +61,6 @@ const ImageContainer = styled(Img)`
   margin-right: 20px;
 `
 
-const Menu = styled.ul`
-  display: flex;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-
-  li {
-    margin: 0 20px 0 0;
-
-    a {
-      color: #3a414e;
-      transition: 0.3s;
-      background-image: none;
-
-      &:hover {
-        color: #ff9907;
-      }
-    }
-  }
-
-  li:last-child {
-    margin: 0;
-  }
-`
-
-const Social = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  a {
-    width: 15px;
-    height: 15px;
-    margin-right: 20px;
-    margin-bottom: 0;
-    transition: 0.2s;
-    background-image: none;
-
-    img {
-      margin: 0;
-    }
-
-    img:hover {
-      fill: red;
-    }
-  }
-
-  a:last-child {
-    margin: 0;
-  }
-`
 // const ImgFb = styled.div`
 //   background: url(${Facebook});
 //   width: 15px;
@@ -159,29 +87,6 @@ export const ImageQuery = graphql`
     }
   }
 `
-
-const menu = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "Archive",
-    path: "/",
-  },
-  {
-    name: "Category",
-    path: "/",
-  },
-  {
-    name: "Pages",
-    path: "/",
-  },
-  {
-    name: "Contact",
-    path: "/",
-  },
-]
 
 Header.propTypes = {
   children: PropTypes.node.isRequired,

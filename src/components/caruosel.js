@@ -71,6 +71,7 @@ const Carousel = () => (
 const CarouselWrapper = styled.div`
   margin-top: 30px;
   position: relative;
+  overflow: hidden;
 `
 
 const CarouselItemWrapper = styled.div`
