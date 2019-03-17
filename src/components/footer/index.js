@@ -60,16 +60,16 @@ const Footer = () => (
             <p>Let us be social</p>
             <FollowIcons>
               <Link to="/">
-                <img src={FbSvg} />
+                <img src={FbSvg} alt="fb" />
               </Link>
               <Link to="/">
-                <img src={FbSvg} />
+                <img src={FbSvg} alt="fb" />
               </Link>
               <Link to="/">
-                <img src={FbSvg} />
+                <img src={FbSvg} alt="fb" />
               </Link>
               <Link to="/">
-                <img src={FbSvg} />
+                <img src={FbSvg} alt="fb" />
               </Link>
             </FollowIcons>
           </div>
