@@ -18,7 +18,7 @@ const postImgLayout = () => (
     <PostImgContainerData>
       <li>
         <Link to="/">
-          <IconFaUser />
+          <FaUser />
           <span>admin</span>
         </Link>
       </li>
@@ -82,12 +82,6 @@ const PostImgContainerData = styled.ul`
         margin-left: 10px;
       }
     }
-  }
-`
-
-const IconFaUser = styled(FaUser)`
-  &:hover {
-    color: red;
   }
 `
 
