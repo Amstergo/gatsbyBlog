@@ -52,6 +52,18 @@ const BannerText = styled.div`
   h4 {
     color: white;
   }
+
+  @media (max-width: 440px) {
+    h1 {
+      font-size: 140%;
+    }
+    h3 {
+      font-size: 120%;
+    }
+    h4 {
+      font-size: 100%;
+    }
+  }
 `
 
 export const HeroBannerImage = graphql`
