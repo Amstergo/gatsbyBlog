@@ -6,32 +6,34 @@ import { IoIosArrowRoundForward } from "react-icons/io"
 import PostImgLayout from "./postImgLayout"
 
 const Listing = () => (
-  <StaticQuery
-    query={LISTING_QUERY}
-    render={({ allMarkdownRemark }) =>
-      allMarkdownRemark.edges.map(e => (
-        <PostContainer key={e.node.frontmatter.id}>
-          <PostImgLayout />
-          <PostTextContainer>
-            <Title to={`/posts${e.node.frontmatter.slug}`}>
-              <h2>{e.node.frontmatter.title}</h2>
-            </Title>
-            <Desc>{e.node.excerpt}</Desc>
-            <ReadMore to={`/posts${e.node.frontmatter.slug}`}>
-              <span>Read more</span>
-              <IoIosArrowRoundForward
-                style={{ fontSize: "200%", marginLeft: "5px" }}
-              />
-            </ReadMore>
-          </PostTextContainer>
-        </PostContainer>
-      ))
-    }
-  />
+  <div>
+    <StaticQuery
+      query={LISTING_QUERY}
+      render={({ allMarkdownRemark }) =>
+        allMarkdownRemark.edges.map(e => (
+          <PostContainer key={e.node.frontmatter.id}>
+            <PostImgLayout />
+            <PostTextContainer>
+              <Title to={`/posts${e.node.frontmatter.slug}`}>
+                <h2>{e.node.frontmatter.title}</h2>
+              </Title>
+              <Desc>{e.node.excerpt}</Desc>
+              <ReadMore to={`/posts${e.node.frontmatter.slug}`}>
+                <span>Read more</span>
+                <IoIosArrowRoundForward
+                  style={{ fontSize: "200%", marginLeft: "5px" }}
+                />
+              </ReadMore>
+            </PostTextContainer>
+          </PostContainer>
+        ))
+      }
+    />
+  </div>
 )
 
 const PostContainer = styled.article`
-  margin-top: 50px;
+  margin-bottom: 50px;
 `
 
 const PostTextContainer = styled.div`
