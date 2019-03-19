@@ -49,6 +49,10 @@ const SocialWrapper = styled.div`
   a:last-child {
     margin: 0;
   }
+
+  @media (max-width: 960px) {
+    display: none;
+  }
 `
 
 export default Social

@@ -59,6 +59,10 @@ const MenuWrapper = styled.ul`
         border-top: 1px solid #ededed33;
       }
 
+      &:last-child {
+        border-bottom: none;
+      }
+
       a {
         line-height: 3;
         display: block;
