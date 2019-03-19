@@ -26,7 +26,11 @@ const Header = ({ siteTitle, children }) => (
 )
 
 const HeaderWrapper = styled.header`
-  background: white;
+  background-color: white;
+
+  @media (max-width: 960px) {
+    background-color: black;
+  }
 `
 
 const HeaderContainer = styled.div`
@@ -36,6 +40,12 @@ const HeaderContainer = styled.div`
   display: grid;
   grid-template-columns: 0.4fr 1fr 0.4fr;
   grid-template-rows: 80px;
+
+  @media (max-width: 960px) {
+    grid-template-areas: "logo toogle" "menu menu";
+    grid-template-columns: 0.4fr 1fr;
+    max-width: 660px;
+  }
 `
 
 const Title = styled.h1`
@@ -43,6 +53,10 @@ const Title = styled.h1`
   display: flex;
   justify-content: end;
   align-items: center;
+
+  @media (max-width: 960px) {
+    grid-area: logo;
+  }
 `
 const TitleLink = styled(Link)`
   color: #373f4d;
