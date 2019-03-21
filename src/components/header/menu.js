@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 const Menu = () => (
   <>
     <MenuBtn type="checkbox" id="menu-btn" />
-    <MenuIcon for="menu-btn">
+    <MenuIcon htmlFor="menu-btn">
       <Navicon />
     </MenuIcon>
     <MenuWrapper>

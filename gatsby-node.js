@@ -8,13 +8,38 @@
 const path = require("path")
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  const results = await graphql(`
+  const postsQuery = await graphql(`
     {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
+      blog {
+        posts: postsConnection(first: 100) {
+          edges {
+            node {
+              status
+              updatedAt
+              createdAt
+              id
+              title
               slug
+              content
+              coverImage {
+                status
+                updatedAt
+                createdAt
+                id
+                handle
+                fileName
+                height
+                width
+                size
+                mimeType
+                url
+              }
+              dateAndTime
+              tags
+              author {
+                id
+                name
+              }
             }
           }
         }
@@ -22,12 +47,12 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
   `)
 
-  results.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  postsQuery.data.blog.posts.edges.forEach(({ node }) => {
     createPage({
-      path: `/posts${node.frontmatter.slug}`,
+      path: `/posts/${node.slug}`,
       component: path.resolve("./src/components/postLayout.js"),
       context: {
-        slug: node.frontmatter.slug,
+        data: node,
       },
     })
   })
