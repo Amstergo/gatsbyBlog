@@ -9,55 +9,57 @@ const Listing = () => (
     <StaticQuery
       query={LISTING_POSTS_QUERY}
       render={data =>
-        data.allSitePage.edges.map(e => (
-          <PostContainer key={e.node.context.data.id}>
-            <PostImgContainer>
-              <img src={e.node.context.data.coverImage.url} alt="" />
-              <PostImgContainerData>
-                <li>
-                  <Link to="/">
-                    <FaUser />
-                    <span>{e.node.context.data.author.name}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <FaCalendar />
-                    <span>{e.node.context.data.dateAndTime}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <FaComments />
-                    <span>2 Comments</span>
-                  </Link>
-                </li>
-              </PostImgContainerData>
-            </PostImgContainer>
-            <PostTextContainer>
-              <TagsContainer>
-                <span>Теги: </span>
-                <Tags>
-                  {e.node.context.data.tags.map(tag => (
-                    <li>
-                      <Link to="/">#{tag}</Link>
-                    </li>
-                  ))}
-                </Tags>
-              </TagsContainer>
-              <Title to={`/posts/${e.node.context.data.slug}`}>
-                <h2>{e.node.context.data.title}</h2>
-              </Title>
-              <Desc>{e.node.context.data.content}</Desc>
-              <ReadMore to={`/posts/${e.node.context.data.slug}`}>
-                <span>Read more</span>
-                <IoIosArrowRoundForward
-                  style={{ fontSize: "200%", marginLeft: "5px" }}
-                />
-              </ReadMore>
-            </PostTextContainer>
-          </PostContainer>
-        ))
+        data.allSitePage.edges.map(e =>
+          e.node.context.data === null ? null : (
+            <PostContainer key={e.node.context.data.id}>
+              <PostImgContainer>
+                <img src={e.node.context.data.coverImage.url} alt="" />
+                <PostImgContainerData>
+                  <li>
+                    <Link to="/">
+                      <FaUser />
+                      <span>{e.node.context.data.author.name}</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      <FaCalendar />
+                      <span>{e.node.context.data.dateAndTime}</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      <FaComments />
+                      <span>2 Comments</span>
+                    </Link>
+                  </li>
+                </PostImgContainerData>
+              </PostImgContainer>
+              <PostTextContainer>
+                <TagsContainer>
+                  <span>Теги: </span>
+                  <Tags>
+                    {e.node.context.data.tags.map(tag => (
+                      <li>
+                        <Link to="/">#{tag}</Link>
+                      </li>
+                    ))}
+                  </Tags>
+                </TagsContainer>
+                <Title to={`/posts/${e.node.context.data.slug}`}>
+                  <h2>{e.node.context.data.title}</h2>
+                </Title>
+                <Desc>{e.node.context.data.content}</Desc>
+                <ReadMore to={`/posts/${e.node.context.data.slug}`}>
+                  <span>Read more</span>
+                  <IoIosArrowRoundForward
+                    style={{ fontSize: "200%", marginLeft: "5px" }}
+                  />
+                </ReadMore>
+              </PostTextContainer>
+            </PostContainer>
+          )
+        )
       }
     />
   </ListingContainer>
@@ -196,13 +198,7 @@ const Tags = styled.ul`
 
 const LISTING_POSTS_QUERY = graphql`
   query {
-    allSitePage(
-      filter: {
-        component: {
-          eq: "/home/amster/projects/siteBot/src/components/postLayout.js"
-        }
-      }
-    ) {
+    allSitePage {
       edges {
         node {
           context {
